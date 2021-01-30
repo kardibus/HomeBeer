@@ -100,7 +100,7 @@ if(st == 1){
   while (WiFi.status() !=  WL_CONNECTED)
   {
     Serial.println("Wifi connected.....");
-    delay(20000);
+    delay(10000);
     while (WiFi.status() !=  WL_CONNECTED){
         EEPROM.writeString(0,"");
         delay(50);
@@ -136,6 +136,18 @@ if(st == 1){
   // URL для файла «style.css»:
   server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/style.css", "text/css");
+  });
+
+  server.on("/bootstrap.min.css", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/bootstrap.min.css", "text/css");
+  });
+
+    server.on("/bootstrap.bundle.min.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/bootstrap.bundle.min.js","text/javascript");
+  });
+
+    server.on("/jquery-3.5.1.min.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/jquery-3.5.1.min.js","text/javascript");
   });
 
   // URL для переключения GPIO-контакта на «HIGH»:
@@ -189,11 +201,11 @@ if(st == 1){
  
 void loop(){
    if(st){
-       delay(5000);
+       delay(50000);
        Serial.println("режим AP");
    }
     if (!st){
-    delay(5000);
+    delay(50000);
        Serial.println("режим STA");
    }
 }

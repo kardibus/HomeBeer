@@ -4,13 +4,43 @@
   <title>ESP32 Web Server</title>
   <meta name="viewport" charset="utf-8" content="width=device-width, initialscale=1">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet"  type="text/css" href="bootstrap.min.css">
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="jquery-3.5.1.min.js"></script>
 </head>
 <body>
-  <p><a href="/passwordForm">Настройка сети</a></p>
-  <h1>ESP32 Web Server</h1>
-  <p>GPIO state: <strong> %STATE%</strong></p>
-  <p><a href="/on"><button class="button">ON</button></a></p>
-  <p><a href="/off"><button class="button button2">OFF</button></a></p>
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">EasyBeer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="/" >Домашняя</a>
+          <a class="nav-link" href="/passwordForm">Настройки сети</a>
+          <a class="nav-link" href="#">Варка</a>
+          <a class="nav-link" href="#">Часы</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+       <div class="center-block">
+            <h1 class="text-center">ESP32 Web Server</h1>
+       </div>
+
+       <div class="center-block">
+  <p class="text-center">GPIO state: <strong> %STATE%</strong></p>
+</div>
+
+<div class="text-center">
+  <p><a href="/on"><button class="btn btn-primary col-6" type="button">ON</button></a></p>
+  <p><a href="/off"><button class="btn btn-primary col-6" type="button">OFF</button></a></p>
+</div>
+</div>
+
 </body>
 </html>
